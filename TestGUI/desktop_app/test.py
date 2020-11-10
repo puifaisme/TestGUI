@@ -1,23 +1,26 @@
-import tkinter as tk
+from tkinter import *
 from PIL import ImageTk, Image
 
-path = 'C:/Users/Chonticha Sae-jiw/Desktop/TestGUI/desktop_app/img/AntLogo128px.png'
+window = Tk()
 
-window = tk.Tk()
+img = ImageTk.PhotoImage(
+    Image.open("E:/Git/TestGUI/TestGUI/desktop_app/img/AntLogo128px.png")
+)
+position = Canvas(window, bg="#140B35", height=500, highlightthickness=0)
+position.pack()
 
-img = ImageTk.PhotoImage(Image.open(path))
-panel = tk.Label(window, image = img)
-panel.pack(side = "bottom", fill = "both", expand = "yes")
-window.mainloop()
+position.create_image((200, 300), image=img)
 
-add_btn = tk.Button(window, text='Rehersal', width=15)
-add_btn.grid(row=3, column=9)
+add_btn = Button(window, text="Rehersal", width=15, bg="#E8641A", fg="white")
+add_btn.place(x=220, y=400)
 
-remove_btn = tk.Button(window, text='Commencement', width=15)
-remove_btn.grid(row=3, column=10)
+remove_btn = Button(window, text="Commencement", width=15, bg="#E8641A", fg="white")
+remove_btn.place(x=380, y=400)
 
-window.configure(bg='#140B35')
-window.title('NUB-SHOW BANDIT')
-window.geometry('750x350')
+
+window.configure(bg="#140B35")
+window.resizable(width=False, height=False)
+window.title("NUB-SHOW BANDIT")
+window.geometry("700x700+0+10")
 
 window.mainloop()
